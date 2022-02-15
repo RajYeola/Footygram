@@ -4,7 +4,9 @@ import axios from "axios";
 export const fetchUserByUsername = createAsyncThunk(
   "users/fetchUserByUsername",
   async (username) => {
-    const response = await axios.get(`http://localhost:5000/user/${username}`);
+    const response = await axios.get(
+      `https://footygram-api.herokuapp.com/user/${username}`
+    );
 
     return { user: response.data.user };
   }

@@ -4,7 +4,9 @@ import axios from "axios";
 export const fetchAllPosts = createAsyncThunk(
   "/posts/fetchAllPosts",
   async () => {
-    const response = await axios.get("http://localhost:5000/posts/");
+    const response = await axios.get(
+      "https://footygram-api.herokuapp.com/posts/"
+    );
 
     return { posts: response.data.posts };
   }
@@ -13,9 +15,12 @@ export const fetchAllPosts = createAsyncThunk(
 export const createNewPost = createAsyncThunk(
   "/posts/createNewPost",
   async (postContent) => {
-    const response = await axios.post("http://localhost:5000/posts/", {
-      postContent,
-    });
+    const response = await axios.post(
+      "https://footygram-api.herokuapp.com/posts/",
+      {
+        postContent,
+      }
+    );
 
     return { post: response.data.newPost };
   }
@@ -25,7 +30,7 @@ export const deletePost = createAsyncThunk(
   "/posts/deletePost",
   async (postID) => {
     const response = await axios.delete(
-      `http://localhost:5000/posts/${postID}`
+      `https://footygram-api.herokuapp.com/posts/${postID}`
     );
 
     return { post: response.data.post };
@@ -36,7 +41,7 @@ export const addReactionToPost = createAsyncThunk(
   "/posts/addReactionToPost",
   async ({ postID, reaction }) => {
     const response = await axios.post(
-      `http://localhost:5000/posts/${postID}/${reaction}`
+      `https://footygram-api.herokuapp.com/posts/${postID}/${reaction}`
     );
 
     return { post: response.data.post };
@@ -47,7 +52,7 @@ export const removeReactionFromPost = createAsyncThunk(
   "/posts/removeReactionFromPost",
   async ({ postID, reaction }) => {
     const response = await axios.delete(
-      `http://localhost:5000/posts/${postID}/${reaction}`
+      `https://footygram-api.herokuapp.com/posts/${postID}/${reaction}`
     );
 
     return { post: response.data.post };

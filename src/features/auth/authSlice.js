@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const signupUser = createAsyncThunk("auth/signup", async (userInfo) => {
   const response = await axios.post(
-    "http://localhost:5000/user/signup",
+    "https://footygram-api.herokuapp.com/user/signup",
     userInfo
   );
 
@@ -12,7 +12,7 @@ export const signupUser = createAsyncThunk("auth/signup", async (userInfo) => {
 
 export const signinUser = createAsyncThunk("auth/signin", async (userInfo) => {
   const response = await axios.post(
-    "http://localhost:5000/user/signin",
+    "https://footygram-api.herokuapp.com/user/signin",
     userInfo
   );
 
@@ -23,7 +23,7 @@ export const followUser = createAsyncThunk(
   "users/followUser",
   async (username) => {
     const response = await axios.post(
-      `http://localhost:5000/user/follow/${username}`
+      `https://footygram-api.herokuapp.com/user/follow/${username}`
     );
 
     return { user: response.data.user };
@@ -34,7 +34,7 @@ export const unfollowUser = createAsyncThunk(
   "users/unfollowUser",
   async (username) => {
     const response = await axios.post(
-      `http://localhost:5000/user/unfollow/${username}`
+      `https://footygram-api.herokuapp.com/user/unfollow/${username}`
     );
 
     return { user: response.data.user };
