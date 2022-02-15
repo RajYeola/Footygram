@@ -46,6 +46,7 @@ const Search = () => {
             ) {
               return value;
             }
+            return null;
           })
           .map((user) => (
             <Link

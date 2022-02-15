@@ -9,18 +9,20 @@ const Navbar = () => {
   const { token } = useSelector((state) => state.auth);
   const [theme, setTheme] = useState("light");
 
-  const initializeTheme = () => {
-    const currentTheme = localStorage?.getItem("theme");
+  useEffect(() => {
+    const initializeTheme = () => {
+      const currentTheme = localStorage?.getItem("theme");
 
-    if (currentTheme) {
-      document.documentElement.setAttribute("data-theme", currentTheme);
-      setTheme(currentTheme);
-    } else {
-      document.documentElement.setAttribute("data-theme", theme);
-    }
-  };
+      if (currentTheme) {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        setTheme(currentTheme);
+      } else {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    };
 
-  useEffect(() => initializeTheme(), []);
+    initializeTheme();
+  }, [theme]);
 
   return (
     <div>
