@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia&display=swap");
+@import url("https://use.typekit.net/fun4zms.css");
+
+body {
+  transition: all ease-in-out 0.3s;
+}
+
+:root,
+html[data-theme="light"] {
+  --primary-background-color: #fff;
+  --secondary-background-color: #f9fafb;
+  --tertiary-background-color: #dedede;
+  --btn-background-color: #44607a;
+  --btn-background-hover-color: #202e3a;
+  --primary-text-color: #111;
+  --secondary-text-color: #2f4254;
+  --primary-border-color: #ebebeb;
+  --secondary-border-color: #999;
+  --card-border-color: #e5e5e5;
+  --modal-overlay-color: rgba(0, 0, 0, 0.75);
+  --reaction-background-color: rgba(186, 230, 253, 1);
+}
+
+html[data-theme="dark"] {
+  --primary-background-color: #111;
+  --secondary-background-color: #222;
+  --tertiary-background-color: #444;
+  --btn-background-color: #97dbfc;
+  --btn-background-hover-color: #7dd3fc;
+  --primary-text-color: #fff;
+  --secondary-text-color: #bae6fd;
+  --primary-border-color: #222;
+  --secondary-border-color: #999;
+  --card-border-color: #4c4c4c;
+  --modal-overlay-color: rgba(255, 255, 255, 0.75);
+  --reaction-background-color: rgba(47, 66, 84, 1);
+}
+
+body {
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
+  font-family: muli, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-sofia {
+  font-family: "Sofia", cursive;
+  font-display: swap;
+}
+
+.color-primary {
+  color: var(--primary-text-color);
+}
+
+.color-secondary {
+  color: var(--secondary-text-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-background-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-background-color);
+}
+
+.secondary-border-color {
+  color: var(--secondary-border-color);
+}
+
+.btn {
+  background-color: var(--btn-background-color);
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--btn-background-hover-color);
+}
+
+.view-container {
+  margin-top: 4.875em;
+}
+
+.spin-icon {
+  animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .view-container {
+    margin-top: 3.5em;
+    margin-bottom: 4em;
+  }
+}
+
+/* Navbar */
+.navbar-desktop,
+.header-mobile {
+  background-color: var(--secondary-background-color);
+  border-bottom: 1px solid var(--primary-border-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-mobile {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--secondary-background-color);
+  border-top: 1px solid var(--primary-border-color);
+}
+
+/* Post Card */
+.post-card-container {
+  background-color: var(--secondary-background-color);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  border: 2px solid var(--card-border-color);
+}
+
+.new-post-container {
+  background-color: var(--secondary-background-color);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  border: 2px solid var(--card-border-color);
+}
+
+.followers-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.reaction-bg {
+  transition: all 0.3s;
+}
+
+.reaction-bg:hover {
+  background-color: var(--reaction-background-color);
+}
+
+/* Search */
+.primary-input {
+  border: 2px solid var(--secondary-border-color);
+  outline: none;
+  transition: all 0.3s;
+}
+.primary-input::placeholder {
+  color: var(--primary-text-color);
+  opacity: 0.8;
+}
+.primary-input-success:focus {
+  border: 2px solid #52a552;
+}
+.primary-input-danger:focus {
+  border: 2px solid #b91c1c;
+}
+
+/* Muli Light{
+font-family: muli, sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+Muli Regular{
+font-family: muli, sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+
+Muli ExtraLight{
+font-family: muli, sans-serif;
+font-weight: 200;
+font-style: normal;
+}
+
+Muli SemiBold{
+font-family: muli, sans-serif;
+font-weight: 600;
+font-style: normal;
+}
+
+Muli Bold{
+font-family: muli, sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+
+Muli ExtraBold{
+font-family: muli, sans-serif;
+font-weight: 800;
+font-style: normal;
+}
+
+ */ ;
