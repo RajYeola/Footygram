@@ -1,5 +1,5 @@
 # Footygram
-A social media app where all football lovers can engage ⚽
+A social media app where all football lovers can engage with each other⚽
 
 ## Tech Stack
 - React
