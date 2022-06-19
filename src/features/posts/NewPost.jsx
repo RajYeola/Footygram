@@ -29,7 +29,13 @@ const NewPost = () => {
       data: { url },
     } = await axios.post(
       "https://api.cloudinary.com/v1_1/dsfvto3gu/image/upload",
-      formData
+      formData,
+      {
+        transformRequest: (data, headers) => {
+          delete headers.common["Authorization"];
+          return data;
+        },
+      }
     );
 
     if (status === 200) {
