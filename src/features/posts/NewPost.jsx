@@ -4,6 +4,7 @@ import { userInitials } from "../../utils/userInitials";
 import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createNewPost } from "./postsSlice";
+import axios from "axios";
 
 const NewPost = () => {
   const { user } = useSelector((state) => state.auth);
@@ -12,8 +13,29 @@ const NewPost = () => {
   const [postContent, setPostContent] = useState("");
   const dispatch = useDispatch();
   const inputRef = useRef(null);
+  const [imageURL, setImageURL] = useState("");
 
   useEffect(() => inputRef.current.focus(), []);
+
+  async function uploadImageHandler(e) {
+    let image = e.target.files[0];
+
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "vwdf0ea8");
+
+    const {
+      status,
+      data: { url },
+    } = await axios.post(
+      "https://api.cloudinary.com/v1_1/dsfvto3gu/image/upload",
+      formData
+    );
+
+    if (status === 200) {
+      setImageURL(url);
+    }
+  }
 
   return (
     <div>
@@ -37,6 +59,17 @@ const NewPost = () => {
             </p>
           </div>
         </div>
+        <form>
+          <input
+            type="file"
+            className="custom-file-input cursor-pointer rounded-lg mt-2 p-1 border w-full md:w-fit"
+            onChange={(e) => uploadImageHandler(e)}
+          />
+        </form>
+        {imageURL && (
+          <img className="post-img my-2" src={imageURL} alt={postContent} />
+        )}
+
         <textarea
           className="bg-transparent w-full mt-2 md:mt-4 h-20 p-1"
           placeholder="What's happening?"
@@ -53,7 +86,8 @@ const NewPost = () => {
           }}
           onClick={() => {
             setPostContent("");
-            dispatch(createNewPost(postContent));
+            setImageURL("");
+            dispatch(createNewPost({ postContent, imageURL }));
           }}
           disabled={!postContent}
         >

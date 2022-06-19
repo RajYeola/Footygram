@@ -6,7 +6,7 @@ import { formatDistanceToNow, parseISO } from "date-fns";
 import { useSelector } from "react-redux";
 
 const PostCard = ({ post }) => {
-  const { user, content, _id: postID, reactions, createdAt } = post;
+  const { user, content, _id: postID, reactions, createdAt, imageURL } = post;
   const { username, name } = user;
   const {
     user: { _id: currentUserID },
@@ -159,7 +159,12 @@ const PostCard = ({ post }) => {
             </p>
           </div>
         </div>
-        <div className="pl-2 md:pl-4 my-2 overflow-hidden">{content}</div>
+        {imageURL && (
+          <img className="post-img my-3 md:m-4" src={imageURL} alt={content} />
+        )}
+        <div className="md:pl-4 mb-3 mt-4 mx-2 md:mt-6 md:mb-2 md:text-lg overflow-hidden">
+          {content}
+        </div>
         <Reactions />
       </div>
     </div>

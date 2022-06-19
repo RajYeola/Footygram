@@ -14,11 +14,12 @@ export const fetchAllPosts = createAsyncThunk(
 
 export const createNewPost = createAsyncThunk(
   "/posts/createNewPost",
-  async (postContent) => {
+  async ({ postContent, imageURL }) => {
     const response = await axios.post(
       "https://footygram-api.herokuapp.com/posts/",
       {
         postContent,
+        imageURL,
       }
     );
 

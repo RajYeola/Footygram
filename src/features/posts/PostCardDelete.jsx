@@ -13,7 +13,13 @@ const PostCardDelete = ({ post }) => {
   const name = post.user?.name;
   const username = post.user?.username;
   const postUserID = post.user?._id;
-  const { content: postContent, _id: postID, reactions, createdAt } = post;
+  const {
+    content: postContent,
+    _id: postID,
+    reactions,
+    createdAt,
+    imageURL,
+  } = post;
   const { like, love, laugh, celebrate, wow } = reactions;
   const { user: loggedInUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -181,7 +187,16 @@ const PostCardDelete = ({ post }) => {
         </div>
         <DeleteBtnOrNoBtn />
       </div>
-      <div className="pl-2 md:pl-4 my-2 overflow-hidden">{postContent}</div>
+      {imageURL && (
+        <img
+          className="post-img my-3 md:m-4"
+          src={imageURL}
+          alt={postContent}
+        />
+      )}
+      <div className="md:pl-4 mb-3 mt-4 mx-2 md:mt-6 md:mb-2 md:text-lg overflow-hidden">
+        {postContent}
+      </div>
       <Reactions />
     </div>
   );
