@@ -10,9 +10,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { username: usernameParam } = useParams();
-  const { user: loggedInUser, status: currentUserStatus } = useSelector(
-    (state) => state.auth
-  );
+  const { user: loggedInUser } = useSelector((state) => state.auth);
   const { status, user: currentUser } = useSelector((state) => state.user);
   const posts = useSelector((state) => state.posts?.posts);
 
@@ -66,7 +64,7 @@ const Profile = () => {
       (async () => {
         dispatch(fetchUserByUsername(usernameParam));
       })(),
-    [usernameParam, currentUserStatus, dispatch]
+    [dispatch, usernameParam, loggedInUser]
   );
 
   return (

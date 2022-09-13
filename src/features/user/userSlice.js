@@ -29,9 +29,9 @@ const userSlice = createSlice({
 
       state.user = user;
     },
-    [fetchUserByUsername.pending]: (state) => {
-      state.status = "loading";
-    },
+    // [fetchUserByUsername.pending]: (state) => {
+    //   state.status = "loading";
+    // },
     [fetchUserByUsername.rejected]: (state, action) => {
       state.error = action.error.message;
       state.status = "rejected";
