@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const signupUser = createAsyncThunk("auth/signup", async (userInfo) => {
   const response = await axios.post(
-    "https://footygram-api.herokuapp.com/user/signup",
+    "https://footygram-backend-git-dev-rajyeola.vercel.app/user/signup",
     userInfo
   );
 
@@ -12,7 +12,7 @@ export const signupUser = createAsyncThunk("auth/signup", async (userInfo) => {
 
 export const signinUser = createAsyncThunk("auth/signin", async (userInfo) => {
   const response = await axios.post(
-    "https://footygram-api.herokuapp.com/user/signin",
+    "https://footygram-backend-git-dev-rajyeola.vercel.app/user/signin",
     userInfo
   );
 
@@ -23,7 +23,7 @@ export const followUser = createAsyncThunk(
   "users/followUser",
   async (username) => {
     const response = await axios.post(
-      `https://footygram-api.herokuapp.com/user/follow/${username}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/user/follow/${username}`
     );
 
     return { user: response.data.user };
@@ -34,7 +34,7 @@ export const unfollowUser = createAsyncThunk(
   "users/unfollowUser",
   async (username) => {
     const response = await axios.post(
-      `https://footygram-api.herokuapp.com/user/unfollow/${username}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/user/unfollow/${username}`
     );
 
     return { user: response.data.user };

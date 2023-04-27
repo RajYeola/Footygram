@@ -5,7 +5,7 @@ export const fetchUserByUsername = createAsyncThunk(
   "users/fetchUserByUsername",
   async (username) => {
     const response = await axios.get(
-      `https://footygram-api.herokuapp.com/user/${username}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/user/${username}`
     );
 
     return { user: response.data.user };

@@ -5,7 +5,7 @@ export const fetchAllPosts = createAsyncThunk(
   "/posts/fetchAllPosts",
   async () => {
     const response = await axios.get(
-      "https://footygram-api.herokuapp.com/posts/"
+      "https://footygram-backend-git-dev-rajyeola.vercel.app/posts/"
     );
 
     return { posts: response.data.posts };
@@ -16,7 +16,7 @@ export const createNewPost = createAsyncThunk(
   "/posts/createNewPost",
   async ({ postContent, imageURL }) => {
     const response = await axios.post(
-      "https://footygram-api.herokuapp.com/posts/",
+      "https://footygram-backend-git-dev-rajyeola.vercel.app/posts/",
       {
         postContent,
         imageURL,
@@ -31,7 +31,7 @@ export const deletePost = createAsyncThunk(
   "/posts/deletePost",
   async (postID) => {
     const response = await axios.delete(
-      `https://footygram-api.herokuapp.com/posts/${postID}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/posts/${postID}`
     );
 
     return { post: response.data.post };
@@ -42,7 +42,7 @@ export const addReactionToPost = createAsyncThunk(
   "/posts/addReactionToPost",
   async ({ postID, reaction }) => {
     const response = await axios.post(
-      `https://footygram-api.herokuapp.com/posts/${postID}/${reaction}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/posts/${postID}/${reaction}`
     );
 
     return { post: response.data.post };
@@ -53,7 +53,7 @@ export const removeReactionFromPost = createAsyncThunk(
   "/posts/removeReactionFromPost",
   async ({ postID, reaction }) => {
     const response = await axios.delete(
-      `https://footygram-api.herokuapp.com/posts/${postID}/${reaction}`
+      `https://footygram-backend-git-dev-rajyeola.vercel.app/posts/${postID}/${reaction}`
     );
 
     return { post: response.data.post };
